@@ -1,0 +1,21 @@
+<div class="container" >
+  <%= simple_form_for @user do |u| %>
+    <%= u.input :amount_bracket, label: "Combien avez-vous donné en 2017 à des associations ?" %>
+    <%= u.input :why_not_more, label: "Qu'est-ce qui vous a empêché de donner plus ?" %>
+    <%= u.input :cause, label: "A quelle cause donneriez-vous (plus) si vous le pouviez ?" %>
+    <%= u.input :own_emotion, label: "Que ressentiriez-vous en donnant plus ?" %>
+    <%= u.input :other_emotion, label: "Que verriez-vous dans le regard des autres sur vous si vous donniez plus ?" %>
+    <%= u.input :preferred_mean, label: "Que préféreriez-vous faire pour donner plus ?" %>
+    <%= u.input :money_wish, label: "Si nous vous faisions économiser plusieurs centaines d'euros par an, vous en feriez quoi ?" %>
+    <%= u.input :email %>
+    <%= u.input :main_mobility_mode %>
+    <%= u.input :motor_vehicle_owner %>
+    <%= u.input :gender %>
+    <%= u.input :age_bracket %>
+    <%= u.input :po_code %>
+    <%= u.input :mob_number %>
+    <%= u.input :first_name %>
+    <%= u.input :last_name %>
+    <%= u.button :submit %>
+  <% end %>
+</div>
