@@ -1,0 +1,55 @@
+<div class="container" >
+  <%= simple_form_for @user, remote: true do |u| %>
+    <%= u.input :amount_bracket,
+        label: "Combien avez-vous donné en 2017 à des associations ?",
+        collection: User.amount_brackets, as: :radio_buttons,
+        wrapper_html: { class: 'q1' } %>
+    <%= u.input :cause,
+        label: "A quelle cause donneriez-vous (plus) si vous le pouviez ?",
+        collection: User.causes, as: :radio_buttons,
+        wrapper_html: { class: 'q2' } %>
+    <%= u.input :own_emotion,
+        label: "Que ressentiriez-vous en donnant plus ?",
+        collection: User.own_emotions, as: :radio_buttons,
+        wrapper_html: { class: 'q3' } %>
+    <%= u.input :other_emotion,
+        label: "Que verriez-vous dans le regard des autres sur vous si vous donniez plus ?",
+        collection: User.other_emotions, as: :radio_buttons,
+        wrapper_html: { class: 'q4' } %>
+    <%= u.input :preferred_mean,
+        label: "Que préféreriez-vous faire pour donner plus ?",
+        collection: User.preferred_means, as: :radio_buttons,
+        wrapper_html: { class: 'q5' } %>
+    <%= u.input :money_wish,
+        label: "Si nous vous faisions économiser plusieurs centaines d'euros par an, vous en feriez quoi ?",
+        wrapper_html: { class: 'q6' } %>
+    <%= u.input :email,
+        label: "A quelle adresse mail pouvons-nous vous contacter lorsque nous serons prêts ?",
+        placeholder: "jean@orange.fr",
+        wrapper_html: { class: 'q7' } %>
+    <%= u.input :main_mobility_mode,
+        label: "Quel est votre mode de transport habituel ?",
+        collection: User.main_mobility_modes, as: :radio_buttons,
+        wrapper_html: { class: 'q8' } %>
+    <%= u.input :motor_vehicle_owner,
+        label: "Etes-vous propriétaire d'un véhicule ? (cochez si oui)",
+        wrapper_html: { class: 'q9' } %>
+    <%= u.input :age_bracket, label: "Dans quelle tranche d'âge êtes-vous ?",
+        collection: User.age_brackets, as: :radio_buttons,
+        wrapper_html: { class: 'q10' } %>
+    <%= u.input :po_code, label: "Quel est votre code postal ?",
+        placeholder: "33000",
+        wrapper_html: { class: 'q11' } %>
+    <%= u.input :mob_number, label: "Quel est votre numéro de portable ?",
+        placeholder: "06........",
+        wrapper_html: { class: 'q12' } %>
+    <%= u.input :first_name, label: "Quel est votre prénom ?",
+        wrapper_html: { class: 'q13' } %>
+    <%= u.input :last_name, label: "Quel est votre nom ?",
+        wrapper_html: { class: 'q14' } %>
+    <button class="btn btn-primary" id="next-question">Confirmer et passer à la question suivante</button>
+    <div class="error-message"></div>
+    <%= u.button :submit %>
+  <% end %>
+  <h1 id="wf" style="opacity:0;width: 600px; margin-top:1.1em;display:none; margin-bottom:1em">Thank you</h1>
+</div>

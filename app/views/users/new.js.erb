@@ -1,0 +1,20 @@
+$('#q-form').html("<%= j (render 'form') %>");
+$('#q-form').slideDown(350);
+const i = $('.form-group').length;
+let n = 1;
+$('.form-group').hide();
+$('.btn-default').hide();
+$(`.q${n}`).show();
+$('#next-question').click(function() {
+  if (n <= 13) {
+    console.log(`${n}`);
+    n += 1;
+    $('.form-group').hide();
+    $(`.q${n}`).show();
+  }
+  else {
+    $('#next-question').hide();
+    $('.form-group').hide();
+    $('.btn-default').show();
+  };
+});
