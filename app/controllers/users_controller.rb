@@ -3,12 +3,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-
-    respond_to do |format|
-      format.html
-      format.js
-      format.json
-    end
   end
 
   def create
@@ -27,7 +21,17 @@ class UsersController < ApplicationController
     @user.age_bracket = user_params[:age_bracket].to_i
     @user.main_mobility_mode = user_params[:main_mobility_mode].to_i
     @user.motor_vehicle_owner = user_params[:motor_vehicle_owner]
-    @user.save
+    if @user.save
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'users/new' }
+        format.js
+      end
+    end
   end
 
   private
