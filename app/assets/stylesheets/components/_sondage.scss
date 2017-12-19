@@ -23,6 +23,26 @@ body {
   color: #6A79A6;
   display: inline-block;
   padding: 0em 2em;
-  margin: 6em auto;
+  margin: 3em auto;
   box-shadow: 0 50px 50px rgba(0, 0, 0, .2);
+}
+
+.form-group {
+  .control-label {
+    text-align: center;
+  }
+  .radio {
+    text-align: left;
+    margin-left: calc(50% - 100px);
+    line-height: 22px;
+    label {
+      margin: 0px 0px 0px 0px;
+      vertical-align: middle;
+    }
+    input {
+      margin: 0px 3px 0px 0px;
+      position: inherit;
+      vertical-align: middle;
+    }
+  }
 }
