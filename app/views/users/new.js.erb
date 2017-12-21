@@ -2,14 +2,24 @@ $('#q-form').html("<%= j (render 'form') %>");
 $('#q-form').slideDown(350);
 const i = $('.form-group').length;
 let n = 1;
+$('.start').hide();
 $('.form-group').hide();
 $('.btn-success').hide();
 $('.btn-default').hide();
+$('.stats').hide();
+$('.perso').hide();
 $(`.q${n}`).show();
 $('#next-question').click(function() {
   if (n <= 12) {
-    n += 1;
+    if (n >= 6 && n <= 9) {
+      $('.stats').show();
+    }
+    if (n > 9) {
+      $('.stats').hide();
+      $('.perso').show();
+    }
     $('.form-group').hide();
+    n += 1;
     $(`.q${n}`).show();
   }
   else {
