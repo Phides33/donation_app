@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render 'users/new' }
+        format.html { render :partial => 'users/form' }
         format.js
       end
     end

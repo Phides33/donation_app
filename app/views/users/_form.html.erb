@@ -25,33 +25,38 @@
     <%= u.input :money_wish,
         label: "Si nous vous faisions économiser plusieurs centaines d'euros par an, vous en feriez quoi ?",
         wrapper_html: { class: 'q6' } %>
-    <%= u.input :email,
-        label: "A quelle adresse mail pouvons-nous vous contacter lorsque nous serons prêts ?",
-        placeholder: "jean@orange.fr",
+    <div class="stats" display="none">A des fins statistiques, quelques compléments:</div>
+    <%= u.input :age_bracket, label: "Dans quelle tranche d'âge êtes-vous (même si vous faites plus jeune que votre âge!)?",
+        collection: User.age_brackets, as: :radio_buttons,
         wrapper_html: { class: 'q7' } %>
+    <%= u.input :po_code, label: "Quel est le code postal de votre adresse ?",
+        placeholder: "33000",
+        wrapper_html: { class: 'q8' },
+        input_html: { width: '40px' } %>
     <%= u.input :main_mobility_mode,
         label: "Quel est votre mode de transport habituel ?",
         collection: User.main_mobility_modes, as: :radio_buttons,
-        wrapper_html: { class: 'q8' } %>
+        wrapper_html: { class: 'q9' } %>
     <%= u.input :motor_vehicle_owner,
         label: "Etes-vous propriétaire d'un véhicule ? (cochez si oui)",
-        wrapper_html: { class: 'q9' } %>
-    <%= u.input :age_bracket, label: "Dans quelle tranche d'âge êtes-vous ?",
-        collection: User.age_brackets, as: :radio_buttons,
         wrapper_html: { class: 'q10' } %>
-    <%= u.input :po_code, label: "Quel est votre code postal ?",
-        placeholder: "33000",
+    <div class="perso" display="none">Enfin, lorsque nous serons prêts à vous faire \
+      économiser plusieurs centaines d'euros par an, il faudra que nous puissions vous \
+      contacter personnellement</div>
+    <%= u.input :first_name, label: "Ceux qui vous tutoient vous appelle ? (prénom)",
         wrapper_html: { class: 'q11' } %>
-    <%= u.input :mob_number, label: "Quel est votre numéro de portable ?",
-        placeholder: "06........",
+    <%= u.input :last_name, label: "A la case nom de famille vous écrivez ?",
         wrapper_html: { class: 'q12' } %>
-    <%= u.input :first_name, label: "Quel est votre prénom ?",
+    <%= u.input :mob_number, label: "On peut vous joindre au ? (numéro de portable)",
+        placeholder: "06........",
         wrapper_html: { class: 'q13' } %>
-    <%= u.input :last_name, label: "Quel est votre nom ?",
+    <%= u.input :email,
+        label: "On peut vous écrire à ? (email)",
+        placeholder: "jean@orange.fr",
         wrapper_html: { class: 'q14' } %>
     <%= u.button :submit %>
   <% end %>
-  <button class="btn btn-primary" id="next-question">Confirmer et passer à la question suivante</button>
+  <button class="btn btn-primary" display="none" id="next-question">Confirmer et passer à la question suivante</button>
   <button class="btn btn-success" onclick="new_user.submit()">Envoyer vos réponses</button>
   <div class="error-message"></div>
 </div>
